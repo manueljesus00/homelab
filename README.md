@@ -9,10 +9,11 @@ Proyecto final de Administración de Sistemas Informáticos en Red
 4. [Hardware empleado](#hardware-empleado)
    1. [Equipo anfitrión](#equipo-anfitrión)
    2. [Router](#router)
-5. [Aplicaciones utilizadas (EN DESARROLLO)](#aplicaciones-utilizadas)
-   1. [Sistemas Operativos (EN DESARROLLO)](#sistemas-operativos)
-   2. [Aplicaciones (EN DESARROLLO)](#aplicaciones)
-6. [Diseño de red (EN DESARROLLO)](#diseño-de-red)
+   3. [Otros elementos](#otros-elementos)
+5. [Aplicaciones utilizadas](#aplicaciones-utilizadas)
+   1. [Sistemas Operativos](#sistemas-operativos)
+   2. [Aplicaciones](#aplicaciones)
+6. [Diseño de red](#diseño-de-red)
    1. [Topología](#topología)
    2. [Planteamiento de subredes](#planteamiento-de-subredes)
    3. [Tabla de direccionamiento (EN DESARROLLO)](#tabla-de-direccionamiento)
@@ -64,11 +65,90 @@ El proyecto se va a realizar entero en máquinas virtuales por lo que se necesit
 
 ## Equipo anfitrión
 
+El equipo anfitrión es un portátil MSI GP73 Leopard de 17,3''. Las características técnicas son:
 
+* Procesador Intel Core i7-8750H
+* Tarjeta gráfica NVIDIA GeForce GTX1060 6GB
+* Un disco duro HDD de 1TB y un disco duro SSD de 256GB
+* Conexión WLAN de 2.4GHz y 5GHz, BlueTooth y un puerto LAN de 1GB/s
+
+El enlace del portátil es el siguiente (https://es.msi.com/Laptop/GP73-Leopard-8RD)
+
+<img src="https://asset.msi.com/resize/image/global/product/product_10_20180212162153_5a814ea172445.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png" style="zoom: 33%;" />
 
 ## Router
 
+El router usado es un router LiveBox+ suministrado por Orange. El modelo exacto es Arcadyan R02. Las características técnicas son:
 
+* Modo de operación FTTH (a través de puerto Gigabit Ehternet WAN)
+* 3 puertos RJ45 Gigabit Ethernet
+* 2 puertos RJ11 para telefonía
+* 1 puerto USB 2.0 tipo A
+* Wi-Fi de Doble Banda 11ac y 11n
+
+![](https://s.cexfactory.net/p/ayuda/images/orange/4/9/2849_botones-livebox-plus-1.png)
+
+## Otros elementos
+
+A parte de estos dos elementos principales contamos con los siguentes elementos complementarios que mejoran el desarrollo del proyecto:
+
+*AVISO: Estos elementos no son necesarios para el funcionamiento del proyecto.*
+
+* Pantalla AOC de 32''
+* Pantalla ASUS de 20''
+* SmartTV Hitachi
+* Repetidor TP-Link Range Extender RE300
+* Telefono móvil Huawei P Smart 2019
+
+# Aplicaciones utilizadas
+
+Las aplicaciones utilizadas se van a dividir en dos categorías que son las propias aplicaciones y los sistemas operativos empleados.
+
+## Sistemas Operativos
+
+* Microsoft Windows 10 versión Home de 64 bits.
+
+  * Este sistema será el usado en el equipo anfitrión para la virtualización.
+  * URL: https://www.microsoft.com/es-es/windows
+* Ubuntu Server 18.04.4. LTS.
+
+  * Este sistema será el principal que contendrá todos los servidores a excepción de **HADES**, **TESEO** y **ZEUS**. No contiene interfaz gráfica.
+  * URL: https://ubuntu.com/download/server
+* Kali Linux 2020.1b.
+
+  * Este sistema operativo se compone de una suite de herramientas para realizar labores de pentesting y auditorías de red&blue team.
+  * URL: https://www.kali.org/downloads/
+* Metasploitable 2.0.
+
+  * Este sistema operativo desarrollado por Rapid7 y basado en Linux está diseñado para que sea lo más vulnerable posible y poder entrenar a cualquier usuario en las técnicas de seguridad informática. Se aplicará en el servidor **HADES**.
+  * URL: https://metasploit.help.rapid7.com/docs/metasploitable-2
+* Clonezilla Server
+
+  * Este sistema operativo basado en Linux está diseñado para gestionar las copias de seguridad de un sistema. Permite hacer la copia vía FTP, SSH o HTTP entre otros, tanto en medios locales como remotos. Se aplicará en el servidor **TESEO**.
+* URL: https://clonezilla.org/clonezilla-SE/#clonezilla-se
+* pfSense
+  * Este sistema operativo es una distribución basada en FreeBSD para ser usado como firewall y router. Se controla a través de una interfaz web. Se aplicará en el servidor **ZEUS**.
+  * URL: https://www.pfsense.org/
+
+## Aplicaciones
+
+Las aplicaciones que vamos a usar son:
+
+* Visual Studio Code
+  * Entorno de programación desarrollado por Microsoft.
+  * URL: https://code.visualstudio.com/
+* VMware Workstation 15
+  * Entorno de virtualización en el que ejecutaremos las máquinas virtuales.
+  * URL: https://www.vmware.com/es/products/workstation-pro.html
+* Packet Tracert
+  * Simulador de redes de Cisco Systems
+  * URL: https://www.netacad.com/es/courses/packet-tracer
+* nmap y zenmap
+  * Escáner de red y puertos. Viene por defecto en Kali Linux.
+* Wireshark
+  * Sniffer de red para capturar y analizar el tráfico. Viene por defecto en Kali Linux.
+* Metasploit Framework
+  * Frameword desarrollado por Rapid7 que permite detectar vulnerabilidades y explotarlas. Viene por defecto en Kali Linux.
 
 # Diseño de red
 
@@ -85,7 +165,7 @@ La topología de la red será jerárquica, es decir, tendremos un router princip
 
 Por tanto, la topología final que se presenta es la siguiente:
 
-<img src="/home/manuel/.config/Typora/typora-user-images/image-20200319144642031.png" alt="image-20200319144642031" style="zoom: 67%;" />
+<img src="./fotos/topografia.png" />
 
 ## Planteamiento de subredes
 
