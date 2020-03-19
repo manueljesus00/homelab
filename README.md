@@ -3,22 +3,22 @@ Proyecto final de Administración de Sistemas Informáticos en Red
 
 **Índice**
 
-1. [Introducción](#introduccion)
+1. [Introducción](#introducción)
 2. [Objetivos](#objetivos)
-3. [Descripción del proyecto](#descripcion)
-4. [Diseño de red (EN DESARROLLO)](#diseno)
-   1. [Ficheros de configuración (EN DESARROLLO)](#configfiles)
-   2. [Tabla de direccionamiento (EN DESARROLLO)](#direccionamiento)
-5. [Aplicaciones utilizadas (EN DESARROLLO)](#apps)
-   1. [Sistemas Operativos (EN DESARROLLO)](#sistemas)
+3. [Descripción del proyecto](#descripción-del-proyecto)
+4. [Diseño de red (EN DESARROLLO)](#diseño-de-red)
+   1. [Ficheros de configuración (EN DESARROLLO)](#ficheros-de-configuración)
+   2. [Tabla de direccionamiento (EN DESARROLLO)](#tabla-de-direccionamiento)
+5. [Aplicaciones utilizadas (EN DESARROLLO)](#aplicaciones-utilizadas)
+   1. [Sistemas Operativos (EN DESARROLLO)](#sistemas-operativos)
    2. [Aplicaciones (EN DESARROLLO)](#aplicaciones)
 6. [Escenarios (EN DESARROLLO)](#escenarios)
 7. [Licencia (EN DESARROLLO)](#licencia)
-8. [To do List](#todolist)
+8. [To do List](#to-do-list)
 
 ---
 
-# Introducción{id="introduccion"}
+# Introducción
 
 ¡Buenas! Soy Manuel Jesús Flores y soy estudiante de Administración de Sistemas Informáticos en Red.
 
@@ -26,8 +26,7 @@ Este repositorio contiene el proyecto integrado de dicho módulo y trata acerca 
 
 A lo largo del repositorio puedes encontrar los avances realizados y por donde va. Se admiten mejoras a través de los *issues* o *pull requests* pero seguramente se implemente una vez finalizado el proyecto. Para cualquier duda no dudes en abrirme un *issue* y te respondo en cuando pueda, ¡nos vemos!
 
-# Objetivos{id=objetivos}
-
+# Objetivos
 Es imposible negar que la seguridad se está convirtiendo a pasos cada vez mayores en un punto a reforzar tanto de empresas como de administraciones públicas pues, como se ha ido desarrollando a lo largo de la crisis mundial originada por el CoVid-19, varios hospitales extranjeros han sido infectados mediante un ransomware.
 
 Este ataque se podía haber evitado o haber disminuido su gravedad si se contaran con expertos en seguridad informática y por ello, el objetivo principal de este proyecto es el crear un entorno desde cero de aprendizaje o de simulación de un centro de operaciones de seguridad (SOC) para poder adquirir habilidades tanto en seguridad como configuración de redes así como proporcionar un entorno seguro donde ejecutar malware conocido y saber que vulnerabilidades aprovecha para realizar su posterior explotación.
@@ -48,13 +47,14 @@ Finalmente, como objetivos opcionales se plantean los siguientes:
 
 * Desarrollar un bot en Telegram que sea capaz de analizar los ficheros log del sistema y notificar al administrador del sistema.
 
-# Descripción del proyecto{id=descripcion}
+# Descripción del proyecto
 
 El proyecto “Elaboración de un SOC Doméstico” nace con la finalidad de, como se indicaba anteriormente, dar una solución de aprendizaje práctico a cualquier persona en el ámbito de la ciberseguridad sin necesidad de invertir una gran cantidad de capital en material (routers, switches, cableado, SAIs…) ya que se trabajará todo a través de la virtualización y, en la medida de lo posible, empleando aplicaciones de software libre aunque es cierto que en muchas empresas se aplican soluciones de software privativo que, en caso de ser necesarias, se usarán promociones de las empresas desarrolladoras que tienen para estudiantes del sector (principalmente el programa Github Students).
 
 Las tecnologías que se van a usar, nombrando por encima, serán como sistemas operativos Ubuntu Server y Desktop, Metasploitable, Kali Linux y Windows Server 2019. Si hablamos de nivel de aplicación se va a usar PfSense, Metasploit Framework, Ettercap o Wireshark entre otros y, a nivel de metodología, se empleará una metodología que conocemos como Red&Blue Team. Esta metodología está en alza y la forman titulados en el campo de seguridad informática que tratarán de atacar (Red team) y defender (Blue team) el sistema de la empresa. Lo interesante de esta metodología es que, aplicándolo en un entorno real, un auditor es capaz de aprender desde ambos puntos de vista y, por tanto, poder proponer y ejecutar soluciones a medida al sistema administrado en cuestión.
 
-# Diseño de red (EN DESARROLLO){id=diseno}
-   ## Ficheros de configuración (EN DESARROLLO)]{id=configfiles}
+# Diseño de red
+   ## Ficheros de configuración
    Los ficheros de configuración se encuentran en [ficheros_cisco](./ficheros_cisco)
-   ## Tabla de direccionamiento (EN DESARROLLO)]{id=direccionamiento}
+   ## Tabla de direccionamiento
+   EN DESARROLLO
