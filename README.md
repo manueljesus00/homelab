@@ -16,7 +16,7 @@ Proyecto final de Administración de Sistemas Informáticos en Red
 6. [Diseño de red](#diseño-de-red)
    1. [Topología](#topología)
    2. [Planteamiento de subredes](#planteamiento-de-subredes)
-   3. [Tabla de direccionamiento (EN DESARROLLO)](#tabla-de-direccionamiento)
+   3. [Tabla de direccionamiento](#tabla-de-direccionamiento)
    4. [Ficheros de configuración (EN DESARROLLO)](#ficheros-de-configuración)
 7. [Escenarios (EN DESARROLLO)](#escenarios)
 8. [Licencia (EN DESARROLLO)](#licencia)
