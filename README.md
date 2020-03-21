@@ -90,7 +90,7 @@ El router usado es un router LiveBox+ suministrado por Orange. El modelo exacto 
 
 ## Otros elementos
 
-A parte de estos dos elementos principales contamos con los siguentes elementos complementarios que mejoran el desarrollo del proyecto:
+A parte de estos dos elementos principales contamos con los siguientes elementos complementarios que mejoran el desarrollo del proyecto:
 
 *AVISO: Estos elementos no son necesarios para el funcionamiento del proyecto.*
 
@@ -144,11 +144,14 @@ Las aplicaciones que vamos a usar son:
   * Simulador de redes de Cisco Systems
   * URL: https://www.netacad.com/es/courses/packet-tracer
 * nmap y zenmap
-  * Escáner de red y puertos. Viene por defecto en Kali Linux.
+  * Escáner de red y puertos. Viene por defecto en Kali Linux. NMAP corresponde a la aplicación en sí y ZENMAP corresponde a la interfaz gráfica.
+  * URL: https://nmap.org
 * Wireshark
   * Sniffer de red para capturar y analizar el tráfico. Viene por defecto en Kali Linux.
+  * URL: https://www.wireshark.org
 * Metasploit Framework
-  * Frameword desarrollado por Rapid7 que permite detectar vulnerabilidades y explotarlas. Viene por defecto en Kali Linux.
+  * Framework desarrollado por Rapid7 que permite detectar vulnerabilidades y explotarlas. Viene por defecto en Kali Linux.
+  * URL: https://www.metasploit.com
 
 # Diseño de red
 
@@ -170,6 +173,15 @@ Por tanto, la topología final que se presenta es la siguiente:
 ## Planteamiento de subredes
 
 La red principal será la **192.168.1.0/24**.
+
+Se van a definir seis subredes que son:
+* **NoDMZ – USUARIOS**: Esta subred irá orientada para todos los usuarios de la vivienda/oficina. Se necesitará al menos capacidad para 100 dispositivos entre los que tendremos teléfonos móviles, puntos de acceso, invitados de confianza…
+* **NoDMZ – SEGURIDAD**: Esta subred irá orientada a mantener un entorno de aprendizaje. Se permitirá un total de 6 dispositivos (servidor HADES y 5 dispositivos más para realizar prácticas). 
+* **NoDMZ – SERVIDORES**: Esta subred irá orientada para mantener los dos servidores de servicios internos de la red que son ATENEA y TESEO.
+* **DMZ**: Esta subred será exclusivamente para dispositivos que queramos que se puedan acceder desde el exterior (páginas web). Se permiten hasta 14 dispositivos por si fuera necesario agregar nuevos servidores o se quisieran virtualizar y adjudicar una dirección IP propia.
+* **CORE**: Esta subred de dos dispositivos estará formada por el servidor de seguridad ZEUS y el switch CORE que son los que distribuyen la conexión principal a las subredes.
+* **ACCESO**: Esta subred de dos dispositivos estará formada por el router y el servidor ZEUS para el control de paquetes y seguridad de la red. Será el punto fronterizo de toda la topología.
+
 
 Dada la topología anteriormente descrita se deberán crear las siguientes subredes:
 
