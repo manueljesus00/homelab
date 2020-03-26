@@ -16,11 +16,12 @@ Proyecto final de Administración de Sistemas Informáticos en Red
 6. [Diseño de red](#diseño-de-red)
    1. [Topología](#topología)
    2. [Planteamiento de subredes](#planteamiento-de-subredes)
-   3. [Tabla de direccionamiento (EN DESARROLLO)](#tabla-de-direccionamiento)
+   3. [Tabla de direccionamiento](#tabla-de-direccionamiento)
    4. [Ficheros de configuración (EN DESARROLLO)](#ficheros-de-configuración)
-7. [Escenarios (EN DESARROLLO)](#escenarios)
-8. [Licencia (EN DESARROLLO)](#licencia)
-9. [To do List](#to-do-list)
+7. [Despliegue del homelab](#despliegue-del-homelab)
+   1. [Configuración de hardware de las máquinas virtuales](#configuración-de-hardware-de-las-máquinas-virtuales)
+8. [Escenarios (EN DESARROLLO)](#escenarios)
+9. [Licencia (EN DESARROLLO)](#licencia)
 
 ---
 
@@ -210,3 +211,26 @@ Además se deja un remante de 91 direcciones IP cuyo rango comprende desde la **
    ## Ficheros de configuración
 
    Los ficheros de configuración se encuentran en [ficheros_cisco](./ficheros_cisco)
+
+# Despliegue del homelab
+
+## Configuración de hardware de las máquinas virtuales
+
+La configuración de hardware que va a tener cada una de las máquinas virtuales o servidores será la siguiente:
+
+| Server / VM | Memoria RAM (GB) | Disco Duro 1 (GB) | Disco Duro 2 (GB) | Interfaces de red |
+| :---------: | :--------------: | :---------------: | :---------------: | :---------------: |
+|    ZEUS     |        4         |        20         |         -         |         2         |
+|   ATENEA    |        2         |        10         |         -         |         1         |
+|  HERACLES   |        2         |        10         |         -         |         1         |
+|    TESEO    |        2         |        10         |        40         |         1         |
+|    HADES    |        2         |        10         |         -         |         1         |
+
+Todos los sistemas tendrán por defecto 10GB de disco duro ya que es el mínimo requerido para funcionar. Los servicios que se instalarán no ocuparán mucho espacio ya que todos los sistemas no tienen interfaz gráfica.
+
+Hay algunos casos excepcionales que son:
+
+* **ZEUS**: Este servidor tendrá el sistema operativo pfSense que se puede mejorar con módulos por lo que se dará el doble de espacio para tener capacidad suficiente para guardar dichos módulos.
+* **TESEO**: Este servidor tendrá el sistema operativo Clonezilla Server y se encargará de realizar las copias de seguridad de todo el sistema. Por ello, se añade un disco duro de 40GB para almacenar en ese las copias de seguridad que se vayan realizando.
+
+Si hablamos de memoria RAM, todos tendrán 2GB de RAM excepto **ZEUS** que tendrá el doble ya que deberá soportar una carga mayor que el resto de servidores al realizar funciones de firewall y detección de intrusos.
