@@ -199,8 +199,7 @@ Además se deja un remante de 91 direcciones IP cuyo rango comprende desde la **
    ## Tabla de direccionamiento
 |   Device    |  Port  |  IP Address   | Mask |    Gateway    |
 | :---------: | :----: | :-----------: | :--: | :-----------: |
-| HOME_ROUTER | G0/0/1 | 192.168.1.153 |  29  |       -       |
-|    ZEUS     |   G0   | 192.168.1.154 |  29  | 192.168.1.153 |
+|    ZEUS     |   G0   | DHCP |  --  | -- |
 |             |   G1   | 192.168.1.157 |  30  | 192.168.1.153 |
 |    CORE     | VLAN1  | 192.168.1.158 |  30  | 192.168.1.153 |
 |  HERACLES   |  NIC   | 192.168.1.129 |  28  | 192.168.1.153 |
