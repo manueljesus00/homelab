@@ -123,11 +123,8 @@ Las aplicaciones utilizadas se van a dividir en dos categorías que son las prop
 
   * Este sistema operativo desarrollado por Rapid7 y basado en Linux está diseñado para que sea lo más vulnerable posible y poder entrenar a cualquier usuario en las técnicas de seguridad informática. Se aplicará en el servidor **HADES**.
   * URL: https://metasploit.help.rapid7.com/docs/metasploitable-2
-* Clonezilla Server
-
-  * Este sistema operativo basado en Linux está diseñado para gestionar las copias de seguridad de un sistema. Permite hacer la copia vía FTP, SSH o HTTP entre otros, tanto en medios locales como remotos. Se aplicará en el servidor **TESEO**.
-* URL: https://clonezilla.org/clonezilla-SE/#clonezilla-se
 * pfSense
+
   * Este sistema operativo es una distribución basada en FreeBSD para ser usado como firewall y router. Se controla a través de una interfaz web. Se aplicará en el servidor **ZEUS**.
   * URL: https://www.pfsense.org/
 
@@ -153,84 +150,3 @@ Las aplicaciones que vamos a usar son:
 * Metasploit Framework
   * Framework desarrollado por Rapid7 que permite detectar vulnerabilidades y explotarlas. Viene por defecto en Kali Linux.
   * URL: https://www.metasploit.com
-
-# Diseño de red
-
-## Topología
-
-La topología de la red será jerárquica, es decir, tendremos un router principal (**HOME_ROUTER**) el cual se conectará al servidor de seguridad (**ZEUS**) que se encargará de filtrar los paquetes e implementar un servidor proxy.  **ZEUS** tendrá otra interfaz que se conectará a un switch (**CORE**) que dividirá entre DMZ (que se encontrará el servidor de acceso público (**HERACLES**) con servicios WEB y FTP) y la noDMZ que será donde se encuentren los hosts y dos tipos de servidores que son:
-
-* Servidores de uso normal
-  * Son servidores que se usan normalmente dentro de una empresa y que se encargan de albergar bases de datos, proporcionar un servicio de correo interno, un servicio de DNS interno y un servidor de copias de seguridad. Estos servidores son:
-    * **ATENEA**: Servicios de correo interno, DNS interno y base de datos.
-    * **TESEO**: Servicio de copias de seguridad.
-* Servidor de aprendizaje de seguridad
-  * Es un servidor crítico ya que contiene un sistema operativo (*metasploitable*) el cual cuenta con numerosas vulnerabilidades. Este servidor será **HADES**.
-
-Por tanto, la topología final que se presenta es la siguiente:
-
-<img src="./fotos/topografia.png" />
-
-## Planteamiento de subredes
-
-La red principal será la **192.168.1.0/24**.
-
-Se van a definir seis subredes que son:
-* **NoDMZ – USUARIOS**: Esta subred irá orientada para todos los usuarios de la vivienda/oficina. Se necesitará al menos capacidad para 100 dispositivos entre los que tendremos teléfonos móviles, puntos de acceso, invitados de confianza…
-* **NoDMZ – SEGURIDAD**: Esta subred irá orientada a mantener un entorno de aprendizaje. Se permitirá un total de 6 dispositivos (servidor HADES y 5 dispositivos más para realizar prácticas). 
-* **NoDMZ – SERVIDORES**: Esta subred irá orientada para mantener los dos servidores de servicios internos de la red que son ATENEA y TESEO.
-* **DMZ**: Esta subred será exclusivamente para dispositivos que queramos que se puedan acceder desde el exterior (páginas web). Se permiten hasta 14 dispositivos por si fuera necesario agregar nuevos servidores o se quisieran virtualizar y adjudicar una dirección IP propia.
-* **CORE**: Esta subred de dos dispositivos estará formada por el servidor de seguridad ZEUS y el switch CORE que son los que distribuyen la conexión principal a las subredes.
-* **ACCESO**: Esta subred de dos dispositivos estará formada por el router y el servidor ZEUS para el control de paquetes y seguridad de la red. Será el punto fronterizo de toda la topología.
-
-
-Dada la topología anteriormente descrita se deberán crear las siguientes subredes:
-
-| Nombre             | Equipos | Red              | Broadcast     |
-| ------------------ | ------- | ---------------- | ------------- |
-| noDMZ - USUARIOS   | 126     | 192.168.1.0/25   | 192.168.1.127 |
-| DMZ                | 14      | 192.168.1.128/28 | 192.168.1.143 |
-| noDMZ - SEGURIDAD  | 6       | 192.168.1.144/29 | 192.168.1.151 |
-| ACCESO             | 2       | 192.168.1.152/30 | 192.168.1.155 |
-| CORE               | 2       | 192.168.1.156/30 | 192.168.1.159 |
-| noDMZ - SERVIDORES | 2       | 192.168.1.160/30 | 192.168.1.163 |
-
-Además se deja un remante de 91 direcciones IP cuyo rango comprende desde la **192.168.1.164/24** a **192.168.1.255/24**.
-
-   ## Tabla de direccionamiento
-|   Device    |  Port  |  IP Address   | Mask |    Gateway    |
-| :---------: | :----: | :-----------: | :--: | :-----------: |
-|    ZEUS     |   G0   | DHCP |  --  | -- |
-|             |   G1   | 192.168.1.157 |  30  | 192.168.1.153 |
-|    CORE     | VLAN1  | 192.168.1.158 |  30  | 192.168.1.153 |
-|  HERACLES   |  NIC   | 192.168.1.129 |  28  | 192.168.1.153 |
-|   ATENEA    |  NIC   | 192.168.1.161 |  30  | 192.168.1.153 |
-|    HADES    |  NIC   | 192.168.1.145 |  29  | 192.168.1.153 |
-|    TESEO    |  NIC   | 192.168.1.162 |  30  | 192.168.1.153 |
-
-   ## Ficheros de configuración
-
-   Los ficheros de configuración se encuentran en [ficheros_cisco](./ficheros_cisco)
-
-# Despliegue del homelab
-
-## Configuración de hardware de las máquinas virtuales
-
-La configuración de hardware que va a tener cada una de las máquinas virtuales o servidores será la siguiente:
-
-| Server / VM | Memoria RAM (GB) | Disco Duro 1 (GB) | Disco Duro 2 (GB) | Interfaces de red |
-| :---------: | :--------------: | :---------------: | :---------------: | :---------------: |
-|    ZEUS     |        4         |        20         |         -         |         2         |
-|   ATENEA    |        2         |        10         |         -         |         1         |
-|  HERACLES   |        2         |        10         |         -         |         1         |
-|    TESEO    |        2         |        10         |        40         |         1         |
-|    HADES    |        2         |        10         |         -         |         1         |
-
-Todos los sistemas tendrán por defecto 10GB de disco duro ya que es el mínimo requerido para funcionar. Los servicios que se instalarán no ocuparán mucho espacio ya que todos los sistemas no tienen interfaz gráfica.
-
-Hay algunos casos excepcionales que son:
-
-* **ZEUS**: Este servidor tendrá el sistema operativo pfSense que se puede mejorar con módulos por lo que se dará el doble de espacio para tener capacidad suficiente para guardar dichos módulos.
-* **TESEO**: Este servidor tendrá el sistema operativo Clonezilla Server y se encargará de realizar las copias de seguridad de todo el sistema. Por ello, se añade un disco duro de 40GB para almacenar en ese las copias de seguridad que se vayan realizando.
-
-Si hablamos de memoria RAM, todos tendrán 2GB de RAM excepto **ZEUS** que tendrá el doble ya que deberá soportar una carga mayor que el resto de servidores al realizar funciones de firewall y detección de intrusos.
