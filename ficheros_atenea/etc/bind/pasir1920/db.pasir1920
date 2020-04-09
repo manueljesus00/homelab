@@ -1,0 +1,35 @@
+;
+; BIND data file for local loopback interface
+; ###################################################
+; ## Nombre del fichero: db.pasir1920
+; ## Ruta recomendada: /etc/bind/pasir1920/db.pasir1920
+; ## Fecha creación: 05-Abril-2020
+; ## Equipo: ATENEA
+; ## Autor: Manuel Jesus Flores Montaño
+; ## Github: @manueljesus00
+; ###################################################
+;
+$TTL    604800
+@       IN      SOA     atenea.pasir1920.local. root.atenea.pasir1920.local. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      atenea.pasir1920.local.
+@       IN      A       192.168.1.3
+
+; ==================================================
+; Registros IN-A
+heracles    IN      A       10.10.10.2
+teseo       IN      A       192.168.1.2
+atenea      IN      A       192.168.1.3
+hades       IN      A       10.10.20.2
+zeus        IN      A       192.168.1.1
+; ==================================================
+; Registros CNAME
+www         IN      CNAME   heracles.pasir1920.local.
+ftp         IN      CNAME   heracles.pasir1920.local.
+sec         IN      CNAME   hades.pasir1920.local.
+ctrl        IN      CNAME   zeus.pasir1920.local.

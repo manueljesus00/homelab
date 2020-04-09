@@ -1,0 +1,22 @@
+;
+; BIND reverse data file for local loopback interface
+; ###################################################
+; ## Nombre del fichero: db.10.10.10
+; ## Ruta recomendada: /etc/bind/pasir1920/db.10.10.10
+; ## Fecha creación: 06-Abril-2020
+; ## Equipo: ATENEA
+; ## Autor: Manuel Jesus Flores Montaño
+; ## Github: @manueljesus00
+; ###################################################
+;
+$TTL    604800
+@       IN      SOA     atenea.pasir1920.local. root.pasir1920.local. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      atenea.pasir1920.local.
+2       IN      PTR     heracles.pasir1920.local.
+1       IN      PTR     zeus.pasir1920.local.

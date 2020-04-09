@@ -1,0 +1,40 @@
+// ###################################################
+// ## Nombre del fichero: named.conf.options
+// ## Ruta recomendada: /etc/bind/named.conf.options
+// ## Fecha creación: 06-Abril-2020
+// ## Equipo: ATENEA
+// ## Autor: Manuel Jesus Flores Montaño
+// ## Github: @manueljesus00
+// ###################################################
+
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+// Zona de busqueda directa pasir1920.local
+zone "pasir1920.local" {
+    type master;
+    file "/etc/bind/pasir1920/db.pasir1920";
+}
+
+// Zona de busqueda inversa 192.168.1.0
+zone "1.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/pasir1920/db.1.168.192";
+}
+
+// Zona de busqueda inversa 10.10.10.0
+zone "10.10.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/pasir1920/db.10.10.10";
+}
+
+// Zona de busqueda inversa 10.10.20.0
+zone "20.10.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/pasir1920/db.20.10.10";
+}
