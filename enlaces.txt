@@ -1,0 +1,12 @@
+RECURSOS EMPLEADOS EN EL PROYECTO
+
+https://www.linuxtotal.com.mx/index.php?cont=rsync-manual-de-uso
+https://maslinux.es/los-15-mejores-programas-de-copia-de-seguridad-de-codigo-abierto-para-gnu-linux/
+https://unicarlos.com/wa/moduloproyecto/sti/pedro_jose_garcia_moreno_pfsense.pdf
+https://www.youtube.com/watch?v=TOnlk1AHn1Q
+https://aulavirtual.iesciudadjardin.es
+https://www.uv.es/sto/articulos/BEI-2003-01/ssh_np.html
+https://voragine.net/linux/acceso-ssh-seguro-servidor-autenticacion-clave-publica
+http://decodigo.com/python-verificar-si-existen-archivos-y-carpetas
+https://codigofacilito.com/articulos/fechas-python
+https://docs.quantifiedcode.com/python-anti-patterns/readability/comparison_to_true.html
