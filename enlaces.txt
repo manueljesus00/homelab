@@ -13,3 +13,7 @@ https://docs.quantifiedcode.com/python-anti-patterns/readability/comparison_to_t
 https://geekytheory.com/programar-tareas-en-linux-usando-crontab
 http://www.secnot.com/comprimir-directorio-linux.html
 http://www.hypexr.org/linux_scp_help.php
+http://www.javiercarrasco.es/2013/02/08/no-se-pudo-bloquear-varlibdpkglock-open-11-recurso-no-disponible-temporalmente/
+https://www.youtube.com/watch?v=73A_nZyxzzM
+https://www.linuxito.com/seguridad/598-como-crear-un-certificado-ssl-autofirmado-en-dos-simples-pasos
+https://www.zevenet.com/es/knowledge-base/howtos/create-certificates-pem-format/
