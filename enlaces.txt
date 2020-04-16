@@ -10,3 +10,6 @@ https://voragine.net/linux/acceso-ssh-seguro-servidor-autenticacion-clave-public
 http://decodigo.com/python-verificar-si-existen-archivos-y-carpetas
 https://codigofacilito.com/articulos/fechas-python
 https://docs.quantifiedcode.com/python-anti-patterns/readability/comparison_to_true.html
+https://geekytheory.com/programar-tareas-en-linux-usando-crontab
+http://www.secnot.com/comprimir-directorio-linux.html
+http://www.hypexr.org/linux_scp_help.php
