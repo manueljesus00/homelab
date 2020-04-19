@@ -17,3 +17,5 @@ http://www.javiercarrasco.es/2013/02/08/no-se-pudo-bloquear-varlibdpkglock-open-
 https://www.youtube.com/watch?v=73A_nZyxzzM
 https://www.linuxito.com/seguridad/598-como-crear-un-certificado-ssl-autofirmado-en-dos-simples-pasos
 https://www.zevenet.com/es/knowledge-base/howtos/create-certificates-pem-format/
+https://serverfault.com/questions/449651/why-is-my-crontab-not-working-and-how-can-i-troubleshoot-it
+https://www.mikroways.net/2009/06/24/habilitar-https-en-apache/
