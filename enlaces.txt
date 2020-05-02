@@ -23,3 +23,4 @@ https://www.cica.es/servicios/conectividad/servidor-ntp/
 https://www.pcwdld.com/traceroute
 https://www.reddit.com/r/PFSENSE/comments/g6v07b/nat_translation_to_internet/
 https://www.bellera.cat/josep/pfsense/nat_cs.html
+https://serverfault.com/questions/421161/how-to-configure-vsftpd-to-work-with-passive-mode
