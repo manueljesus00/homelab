@@ -1,0 +1,91 @@
+# Nmap 7.80 scan initiated Fri May  8 14:27:31 2020 as: nmap -sS -sU -T4 -A -v -n 192.168.205.128
+Nmap scan report for 192.168.205.128
+Host is up (0.00069s latency).
+Not shown: 994 filtered ports, 992 open|filtered ports
+PORT      STATE  SERVICE  VERSION
+21/tcp    open   ftp      vsftpd 2.0.8 or later
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| drwxr-xr-x    2 1000     100          4096 Apr 16 23:03 Comunicados
+| drwxr-xr-x    2 1000     100          4096 Apr 16 23:05 Documentos
+| drwxr-xr-x    2 1000     100          4096 Apr 16 23:06 Musica
+|_drwx------    2 1000     1000         4096 Apr 30 14:31 NUEVO_DIR
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 192.168.205.137
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+| ssl-cert: Subject: commonName=heracles.pasir1920.local/organizationName=IES CIUDAD JARDIN/stateOrProvinceName=SEVILLA/countryName=ES
+| Issuer: commonName=heracles.pasir1920.local/organizationName=IES CIUDAD JARDIN/stateOrProvinceName=SEVILLA/countryName=ES
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2020-04-16T23:29:46
+| Not valid after:  2023-04-16T23:29:46
+| MD5:   d4fa 8fe5 e0ef d248 a266 2a70 0f24 e18a
+|_SHA-1: a2bf 9e0c 8c3b 6ad0 0ba2 c315 6e40 9dbd d593 10e2
+80/tcp    open   http     Apache httpd 2.4.29 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: HEAD GET POST OPTIONS
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Pagina web
+443/tcp   open   ssl/http Apache httpd 2.4.29 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: HEAD GET POST OPTIONS
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Pagina web
+| ssl-cert: Subject: commonName=heracles.pasir1920.local/organizationName=IES CIUDAD JARDIN/stateOrProvinceName=SEVILLA/countryName=ES
+| Issuer: commonName=heracles.pasir1920.local/organizationName=IES CIUDAD JARDIN/stateOrProvinceName=SEVILLA/countryName=ES
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2020-04-16T23:29:46
+| Not valid after:  2023-04-16T23:29:46
+| MD5:   d4fa 8fe5 e0ef d248 a266 2a70 0f24 e18a
+|_SHA-1: a2bf 9e0c 8c3b 6ad0 0ba2 c315 6e40 9dbd d593 10e2
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn: 
+|_  http/1.1
+30000/tcp closed ndmps
+30718/tcp closed unknown
+30951/tcp closed unknown
+443/udp   closed https
+30263/udp closed unknown
+30365/udp closed unknown
+30656/udp closed unknown
+30697/udp closed unknown
+30704/udp closed unknown
+30718/udp closed unknown
+30975/udp closed unknown
+MAC Address: 00:0C:29:D9:51:4E (VMware)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=5/8%OT=21%CT=30000%CU=443%PV=Y%DS=1%DC=D%G=Y%M=000C29%
+OS:TM=5EB5B318%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=107%TI=Z%TS=A)OPS
+OS:(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST1
+OS:1NW7%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN
+OS:(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=A
+OS:S%RD=0%Q=)T2(R=N)T3(R=N)T4(R=N)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=
+OS:0%Q=)T6(R=N)T7(R=N)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RU
+OS:CK=F7F2%RUD=G)IE(R=N)
+
+Uptime guess: 13.015 days (since Sat Apr 25 21:08:25 2020)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=258 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: Host: Bienvenido
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.69 ms 192.168.205.128
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri May  8 21:29:28 2020 -- 1 IP address (1 host up) scanned in 25317.51 seconds
