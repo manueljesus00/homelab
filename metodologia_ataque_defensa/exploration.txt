@@ -1,0 +1,413 @@
+root@kali:/home/manuel# nmap -sS -sV --script all 192.168.205.128
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-05-23 22:40 CEST
+too short
+Pre-scan script results:
+| broadcast-dhcp-discover: 
+|   Response 1 of 1: 
+|     IP Offered: 192.168.205.138
+|     Server Identifier: 192.168.205.254
+|     Subnet Mask: 255.255.255.0
+|     Router: 192.168.205.2
+|     Domain Name Server: 192.168.205.2
+|     Domain Name: localdomain
+|     Broadcast Address: 192.168.205.255
+|_    NetBIOS Name Server: 192.168.205.2
+| broadcast-igmp-discovery: 
+|   192.168.205.1
+|     Interface: eth1
+|     Version: 2
+|     Group: 224.0.0.251
+|     Description: mDNS (rfc6762)
+|   192.168.205.1
+|     Interface: eth1
+|     Version: 2
+|     Group: 224.0.0.252
+|     Description: Link-local Multicast Name Resolution (rfc4795)
+|   192.168.205.1
+|     Interface: eth1
+|     Version: 2
+|     Group: 239.255.255.250
+|     Description: Organization-Local Scope (rfc2365)
+|_  Use the newtargets script-arg to add the results as targets
+| broadcast-listener: 
+|_  udp
+|_eap-info: please specify an interface with -e
+| ipv6-multicast-mld-list: 
+|   fe80::e9de:3056:b87f:710c: 
+|     device: eth1
+|     mac: 00:50:56:c0:00:08
+|     multicast_ips: 
+|       ff02::1:ff93:b501         (Solicited-Node Address)
+|       ff02::1:3                 (Link-local Multicast Name Resolution)
+|       ff02::fb                  (mDNSv6)
+|       ff02::1:ff93:b501         (Solicited-Node Address)
+|       ff02::fb                  (mDNSv6)
+|       ff02::fb                  (mDNSv6)
+|       ff02::1:3                 (Link-local Multicast Name Resolution)
+|       ff02::1:3                 (Link-local Multicast Name Resolution)
+|       ff02::1:3                 (Link-local Multicast Name Resolution)
+|       ff02::1:3                 (Link-local Multicast Name Resolution)
+|       ff02::1:3                 (Link-local Multicast Name Resolution)
+|       ff02::fb                  (mDNSv6)
+|       ff02::1:ff7f:710c         (NDP Solicited-node)
+|       ff02::fb                  (mDNSv6)
+|       ff02::c                   (SSDP)
+|       ff02::fb                  (mDNSv6)
+|       ff02::1:3                 (Link-local Multicast Name Resolution)
+|_      ff02::fb                  (mDNSv6)
+| targets-asn: 
+|_  targets-asn.asn is a mandatory parameter
+| targets-ipv6-multicast-echo: 
+|   IP: fe80::20c:29ff:fed9:514e  MAC: 00:0c:29:d9:51:4e  IFACE: eth1
+|_  Use --script-args=newtargets to add the results as targets
+| targets-ipv6-multicast-mld: 
+|   IP: fe80::e9de:3056:b87f:710c  MAC: 00:50:56:c0:00:08  IFACE: eth1
+| 
+|_  Use --script-args=newtargets to add the results as targets
+| targets-ipv6-multicast-slaac: 
+|   IP: fe80::e9de:3056:b87f:710c  MAC: 00:50:56:c0:00:08  IFACE: eth1
+|   IP: fe80::e89b:af16:8f93:b501  MAC: 00:50:56:c0:00:08  IFACE: eth1
+|   IP: fe80::20c:29ff:fed9:514e   MAC: 00:0c:29:d9:51:4e  IFACE: eth1
+|_  Use --script-args=newtargets to add the results as targets
+Stats: 0:55:24 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 64.58% done; ETC: 00:05 (0:29:51 remaining)
+Stats: 1:01:06 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 65.40% done; ETC: 00:13 (0:31:49 remaining)
+Nmap scan report for 192.168.205.128
+Host is up (0.00055s latency).
+Not shown: 994 filtered ports
+PORT      STATE  SERVICE  VERSION
+21/tcp    open   ftp      vsftpd 2.0.8 or later
+|_banner: 220 Bienvenido al servidor FTP de PASIR1920.LOCAL
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| drwxr-xr-x    2 1000     100          4096 Apr 16 23:03 Comunicados
+| drwxr-xr-x    2 1000     100          4096 Apr 16 23:05 Documentos
+| drwxr-xr-x    2 1000     100          4096 Apr 16 23:06 Musica
+|_drwx------    2 1000     1000         4096 Apr 30 14:31 NUEVO_DIR
+| ftp-brute: 
+|   Accounts: No valid accounts found
+|   Statistics: Performed 0 guesses in 2 seconds, average tps: 0.0
+|_  ERROR: The service seems to have failed or is heavily firewalled...
+| ftp-libopie: 
+|   VULNERABLE:
+|   OPIE off-by-one stack overflow
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2010-1938  BID:40403
+|     Risk factor: High  CVSSv2: 9.3 (HIGH) (AV:N/AC:M/Au:N/C:C/I:C/A:C)
+|       An off-by-one error in OPIE library 2.4.1-test1 and earlier, allows remote
+|       attackers to cause a denial of service or possibly execute arbitrary code
+|       via a long username.
+|     Disclosure date: 2010-05-27
+|     References:
+|       http://security.freebsd.org/advisories/FreeBSD-SA-10:05.opie.asc
+|       http://site.pi3.com.pl/adv/libopie-adv.txt
+|       https://www.securityfocus.com/bid/40403
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1938
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 192.168.205.137
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+| ssl-cert: Subject: commonName=heracles.pasir1920.local/organizationName=IES CIUDAD JARDIN/stateOrProvinceName=SEVILLA/countryName=ES
+| Not valid before: 2020-04-16T23:29:46
+|_Not valid after:  2023-04-16T23:29:46
+|_sslv2-drown: 
+80/tcp    open   http     Apache httpd
+|_citrix-brute-xml: FAILED: No domain specified (use ntdomain argument)
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| http-brute:   
+|_  Path "/" does not require authentication
+|_http-chrono: Request times for /; avg: 313.66ms; min: 157.73ms; max: 852.50ms
+| http-comments-displayer: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.205.128
+|     
+|     Path: http://192.168.205.128:80/
+|     Line number: 30
+|     Comment: 
+|         <!--JS Stuff...-->
+|     
+|     Path: http://192.168.205.128:80/
+|     Line number: 8
+|     Comment: 
+|         <!-- Esta pagina web tiene como \xC3\xBAnica funci\xC3\xB3n comprobar
+|             que el servicio web est\xC3\xA1 operativo y que dispone de certificado
+|             HTTPS autofirmado. Vamos, no esperes una gran web porque dudo que lo
+|_            consiga, para ello, mira el proyecto final de uno de DAW.-->
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-date: Sat, 23 May 2020 21:11:33 GMT; -1s from local time.
+|_http-devframework: Couldn't determine the underlying framework or CMS. Try increasing 'httpspider.maxpagecount' value to spider more pages.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-errors: Couldn't find any error pages.
+|_http-feed: Couldn't find any feeds.
+|_http-fetch: Please enter the complete path of the directory to save data in.
+| http-grep: 
+|   (1) http://192.168.205.128:80/: 
+|     (1) email: 
+|_      + popper.js@1.16
+| http-headers: 
+|   Date: Sat, 23 May 2020 21:11:34 GMT
+|   Server: Apache
+|   Last-Modified: Sun, 19 Apr 2020 18:13:01 GMT
+|   ETag: "79e-5a3a8bb9db5b2"
+|   Accept-Ranges: bytes
+|   Content-Length: 1950
+|   Vary: Accept-Encoding
+|   Connection: close
+|   Content-Type: text/html
+|   
+|_  (Request type: HEAD)
+|_http-mobileversion-checker: No mobile version detected.
+| http-referer-checker: 
+| Spidering limited to: maxpagecount=30
+|   https://stackpath.bootstrapcdn.com:443/bootstrap/4.4.1/js/bootstrap.min.js
+|   https://cdn.jsdelivr.net:443/npm/popper.js@1.16.0/dist/umd/popper.min.js
+|_  https://code.jquery.com:443/jquery-3.4.1.slim.min.js
+|_http-security-headers: 
+|_http-server-header: Apache
+| http-sitemap-generator: 
+|   Directory structure:
+|     /
+|       Other: 1
+|   Longest directory structure:
+|     Depth: 0
+|     Dir: /
+|   Total files found (by extension):
+|_    Other: 1
+|_http-slowloris: false
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-title: Pagina web
+| http-useragent-tester: 
+|   Status for browser useragent: 200
+|   Allowed User Agents: 
+|     Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)
+|     libwww
+|     lwp-trivial
+|     libcurl-agent/1.0
+|     PHP/
+|     Python-urllib/2.5
+|     GT::WWW
+|     Snoopy
+|     MFC_Tear_Sample
+|     HTTP::Lite
+|     PHPCrawl
+|     URI::Fetch
+|     Zend_Http_Client
+|     http client
+|     PECL::HTTP
+|     Wget/1.13.4 (linux-gnu)
+|_    WWW-Mechanize/1.34
+| http-vhosts: 
+|_127 names had status 200
+|_http-xssed: No previously reported XSS vuln.
+443/tcp   open   ssl/http Apache httpd
+|_citrix-brute-xml: FAILED: No domain specified (use ntdomain argument)
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| http-brute:   
+|_  Path "/" does not require authentication
+|_http-chrono: Request times for /; avg: 172.16ms; min: 159.57ms; max: 202.05ms
+| http-comments-displayer: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.205.128
+|     
+|     Path: https://192.168.205.128:443/
+|     Line number: 30
+|     Comment: 
+|         <!--JS Stuff...-->
+|     
+|     Path: https://192.168.205.128:443/
+|     Line number: 8
+|     Comment: 
+|         <!-- Esta pagina web tiene como \xC3\xBAnica funci\xC3\xB3n comprobar
+|             que el servicio web est\xC3\xA1 operativo y que dispone de certificado
+|             HTTPS autofirmado. Vamos, no esperes una gran web porque dudo que lo
+|_            consiga, para ello, mira el proyecto final de uno de DAW.-->
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-date: Sat, 23 May 2020 21:41:38 GMT; -1s from local time.
+|_http-devframework: Couldn't determine the underlying framework or CMS. Try increasing 'httpspider.maxpagecount' value to spider more pages.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-errors: Couldn't find any error pages.
+|_http-feed: Couldn't find any feeds.
+|_http-fetch: Please enter the complete path of the directory to save data in.
+| http-grep: 
+|   (1) https://192.168.205.128:443/: 
+|     (1) email: 
+|_      + popper.js@1.16
+| http-headers: 
+|   Date: Sat, 23 May 2020 21:11:35 GMT
+|   Server: Apache
+|   Last-Modified: Sun, 19 Apr 2020 18:13:01 GMT
+|   ETag: "79e-5a3a8bb9db5b2"
+|   Accept-Ranges: bytes
+|   Content-Length: 1950
+|   Vary: Accept-Encoding
+|   Connection: close
+|   Content-Type: text/html
+|   
+|_  (Request type: HEAD)
+|_http-mobileversion-checker: No mobile version detected.
+| http-referer-checker: 
+| Spidering limited to: maxpagecount=30
+|   https://stackpath.bootstrapcdn.com:443/bootstrap/4.4.1/js/bootstrap.min.js
+|   https://cdn.jsdelivr.net:443/npm/popper.js@1.16.0/dist/umd/popper.min.js
+|_  https://code.jquery.com:443/jquery-3.4.1.slim.min.js
+| http-security-headers: 
+|   Strict_Transport_Security: 
+|_    HSTS not configured in HTTPS Server
+|_http-server-header: Apache
+| http-sitemap-generator: 
+|   Directory structure:
+|     /
+|       Other: 1
+|   Longest directory structure:
+|     Depth: 0
+|     Dir: /
+|   Total files found (by extension):
+|_    Other: 1
+|_http-slowloris: false
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-title: Pagina web
+| http-useragent-tester: 
+|   Status for browser useragent: 200
+|   Allowed User Agents: 
+|     Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)
+|     libwww
+|     lwp-trivial
+|     libcurl-agent/1.0
+|     PHP/
+|     Python-urllib/2.5
+|     GT::WWW
+|     Snoopy
+|     MFC_Tear_Sample
+|     HTTP::Lite
+|     PHPCrawl
+|     URI::Fetch
+|     Zend_Http_Client
+|     http client
+|     PECL::HTTP
+|     Wget/1.13.4 (linux-gnu)
+|_    WWW-Mechanize/1.34
+| http-vhosts: 
+|_127 names had status 200
+|_http-xssed: No previously reported XSS vuln.
+| ssl-cert: Subject: commonName=heracles.pasir1920.local/organizationName=IES CIUDAD JARDIN/stateOrProvinceName=SEVILLA/countryName=ES
+| Not valid before: 2020-04-16T23:29:46
+|_Not valid after:  2023-04-16T23:29:46
+|_ssl-date: TLS randomness does not represent time
+| ssl-enum-ciphers: 
+|   TLSv1.0: 
+|     ciphers: 
+|       TLS_DHE_RSA_WITH_AES_128_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA (dh 2048) - A
+|       TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (secp256r1) - A
+|       TLS_RSA_WITH_AES_128_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_CAMELLIA_128_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_CAMELLIA_256_CBC_SHA (rsa 2048) - A
+|     compressors: 
+|       NULL
+|     cipher preference: client
+|   TLSv1.1: 
+|     ciphers: 
+|       TLS_DHE_RSA_WITH_AES_128_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA (dh 2048) - A
+|       TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (secp256r1) - A
+|       TLS_RSA_WITH_AES_128_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_CAMELLIA_128_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_CAMELLIA_256_CBC_SHA (rsa 2048) - A
+|     compressors: 
+|       NULL
+|     cipher preference: client
+|   TLSv1.2: 
+|     ciphers: 
+|       TLS_DHE_RSA_WITH_AES_128_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_128_CCM (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_128_CCM_8 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_CCM (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_CCM_8 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_ARIA_128_GCM_SHA256 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_ARIA_256_GCM_SHA384 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA256 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA256 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (dh 2048) - A
+|       TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_ARIA_128_GCM_SHA256 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_ARIA_256_GCM_SHA384 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (secp256r1) - A
+|       TLS_RSA_WITH_AES_128_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_AES_128_CBC_SHA256 (rsa 2048) - A
+|       TLS_RSA_WITH_AES_128_CCM (rsa 2048) - A
+|       TLS_RSA_WITH_AES_128_CCM_8 (rsa 2048) - A
+|       TLS_RSA_WITH_AES_128_GCM_SHA256 (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_CBC_SHA256 (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_CCM (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_CCM_8 (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_GCM_SHA384 (rsa 2048) - A
+|       TLS_RSA_WITH_ARIA_128_GCM_SHA256 (rsa 2048) - A
+|       TLS_RSA_WITH_ARIA_256_GCM_SHA384 (rsa 2048) - A
+|       TLS_RSA_WITH_CAMELLIA_128_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256 (rsa 2048) - A
+|       TLS_RSA_WITH_CAMELLIA_256_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256 (rsa 2048) - A
+|     compressors: 
+|       NULL
+|     cipher preference: client
+|_  least strength: A
+|_sslv2-drown: 
+| tls-alpn: 
+|_  http/1.1
+30000/tcp closed ndmps
+30718/tcp closed unknown
+30951/tcp closed unknown
+MAC Address: 00:0C:29:D9:51:4E (VMware)
+Service Info: Host: Bienvenido
+
+Host script results:
+|_clock-skew: mean: -1s, deviation: 0s, median: -1s
+|_dns-brute: Can't guess domain of "192.168.205.128"; use dns-brute.domain script argument.
+|_fcrdns: FAIL (No PTR record)
+|_ipidseq: All zeros
+|_path-mtu: PMTU == 1500
+| qscan: 
+| PORT   FAMILY  MEAN (us)  STDDEV   LOSS (%)
+| 21     0       1085.70    482.66   0.0%
+| 80     0       974.40     352.76   0.0%
+| 443    0       907.80     162.87   0.0%
+|_30000  0       2409.50    4220.99  0.0%
+
+Post-scan script results:
+| reverse-index: 
+|   21/tcp: 192.168.205.128
+|   80/tcp: 192.168.205.128
+|_  443/tcp: 192.168.205.128
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 3686.84 seconds
